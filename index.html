@@ -1,48 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Testimonios Café Lab</title>
-  <link rel="stylesheet" href="/cafeLab-landingPage/assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaféLab - Dominio total sobre tu café</title>
+    <meta name="description" content="Plataforma integral para baristas y cafeterías que conecta el café verde con la taza final. Documenta tuestes, recetas y procesos desde un solo lugar.">
+    <meta name="keywords" content="café de especialidad, barista, tueste, control, trazabilidad, calibración, CaféLab">
+    <meta name="author" content="Equipo CaféLab - CaféMetrix">
+    <meta name="copyright" content="CaféLab">
+
+    <!-- Fuentes Montserrat y Arial -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="Café Lab Logo" class="logo-img">
+            </div>
+            <div class="nav-container">
+                <nav class="nav">
+                    <a href="#beneficios" class="nav-link primary">Beneficios</a>
+                    <a href="#planes" class="nav-link primary">Planes</a>
+                    <a href="#faq-contacto" class="nav-link primary">Contactos</a>
+                    <a href="#iniciar-sesion" class="nav-link primary login">
+                        <svg class="login-icon icon-person" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Iniciar sesión
+                    </a>
+                </nav>
+                <a href="#language" class="language-button primary">
+                    ES
+                    <svg class="language-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
 
-  <!-- Sección de Testimonios -->
-  <section class="testimonios">
-    <h2>Esto dicen los que ya usan Café Lab.</h2>
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">DOMINIO TOTAL SOBRE TU CAFÉ.</h1>
+                <div class="hero-right">
+                    <p class="hero-subtitle">Descubre lo que Café Lab tiene para ofrecerte</p>
+                    <a href="#register" class="hero-button primary">Quiero registrarme</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="testimonios-contenedor">
+     <!-- Sección Beneficios -->
+    <section id="beneficios" class="beneficios">
+       <div class="container">
+           <h2 class="beneficios__title">
+                Enfoque en <span class="underline">beneficios claros</span>.
+           </h2>
+           <div class="beneficios__grid">
+                <!-- Card Barista -->
+                <div class="beneficio-card">
+                    <h3 class="beneficio-card__heading">Soy barista</h3>
+                    <p class="beneficio-card__text">
+                        Documenta tus recetas, eleva tu técnica y construye un perfil sensorial único que defina tu estilo como profesional.
+                    </p>
+                    <p class="beneficio-card__cta">
+                    <span class="highlight">Perfecciona</span>
+                    <span class="cta-rest">tu arte.</span>
+                    </p>
+                    <a href="#herramientas" class="btn-beneficios">
+                       Ver herramientas para baristas
+                    </a>
+                </div>
+                <!-- Card Cafetería -->
+                <div class="beneficio-card">
+                    <h3 class="beneficio-card__heading">Tengo una cafetería</h3>
+                    <p class="beneficio-card__text">
+                        Optimiza tu inventario, garantiza la trazabilidad de tus productos y profesionaliza cada aspecto de tu operación cafetera.
+                    </p>
+                    <p class="beneficio-card__cta">
+                        <span class="highlight">Impulsa</span>
+                        <span class="cta-rest">tu negocio.</span>
+                    </p>
+                    <a href="#soluciones" class="btn-beneficios">
+                        Ver soluciones para negocios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>      
 
-      <div class="testimonio">
-        <img src="/cafeLab-landingPage/assets/Martin guiterrez.jpg" alt="Martin Gutierrez" />
-        <h3>Martin Gutierrez - Dueño de cafetería</h3>
-        <p>“Gracias a CafeLab pude optimizar mis procesos mediante documentaciones intuitivas, lo que mejoró mis planificaciones.”</p>
-      </div>
 
-      <div class="testimonio">
-        <img src="/cafeLab-landingPage/assets/Ana Rivera.jpg" alt="Ana Rivera" />
-        <h3>Ana Rivera - Barista en Lima</h3>
-        <p>“CafeLab me ayudó a estandarizar mis tuestes y reducir errores. Ahora todos en la cafetería usan la misma receta.”</p>
-      </div>
+    <!-- Sección 3: Datos que respaldan tus decisiones -->
+    <section class="data-section">
+        <div class="container">
+            <h2 class="data-title">Datos que respaldan tus decisiones.</h2>
+            <p class="data-subtitle">Desde la curva hasta el inventario, Café Lab documenta cada paso.</p>
 
-    </div>
+            <div class="data-features">
+                <!-- Dashboard de inventario -->
+                <div class="feature-row">
+                    <div class="feature-image">
+                        <div class="device-mockup">
+                            <img src="assets/img/dashboard_inventario.png" alt="Dashboard de inventario">
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Dashboard de inventario</h3>
+                        <p class="feature-description">
+                            Seguimiento de lotes en tiempo real, stock de granos, y control de movimientos.
+                        </p>
+                    </div>
+                </div>
 
-    <div class="calificaciones">
-      <div class="opinion">
-        <img src="/cafeLab-landingPage/assets/Rosa.jpeg" alt="Rosa Dominguez" />
-        <h4>Rosa Dominguez</h4>
-        <p>⭐⭐⭐⭐⭐</p>
-        <span>“Útil, fácil de usar”</span>
-      </div>
-      <div class="opinion">
-        <img src="/cafeLab-landingPage/assets/Miguel.jpeg"alt="Miguel Diaz" />
-        <h4>Miguel Diaz</h4>
-        <p>⭐⭐⭐⭐⭐</p>
-        <span>“Rentable”</span>
-      </div>
-    </div>
-  </section>
+                <!-- Curvas de tueste -->
+                <div class="feature-row reverse">
+                    <div class="feature-image">
+                        <div class="device-mockup">
+                            <img src="assets/img/curva_tueste.png" alt="Curvas de tueste">
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Curvas de tueste</h3>
+                        <p class="feature-description">
+                            Control preciso del desarrollo del tueste para maximizar las cualidades sensoriales de cada origen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Sección 6: FAQ y Contacto -->
+    <section id="faq-contacto" class="faq-contact-section">
+        <div class="faq-contact-wrapper">
+            <!-- Sección de Preguntas Frecuentes -->
+            <div class="faq">
+                <h2 class="faq-title">Preguntas Frecuentes (FAQ)</h2>
+                <div class="faq-item">
+                    <p class="question">¿Puedo usar Cafelab si solo soy barista y no tengo cafetería?</p>
+                    <p class="answer">¡Claro! Cafelab se adapta tanto a baristas individuales como a cafeterías completas.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="question">¿Qué diferencia hay entre los planes?</p>
+                    <p class="answer">Los planes difieren en cantidad de usuarios, acceso a funciones avanzadas y módulos de análisis.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="question">¿La app está disponible para móvil?</p>
+                    <p class="answer">Sí, Cafelab funciona perfectamente desde navegador móvil. La app nativa está en desarrollo.</p>
+                </div>
+                <a href="#" class="ver-mas">Ver más...</a>
+            </div>
+
+            <!-- Sección de Formulario de Contacto -->
+            <div class="contact">
+                <h2 class="contact-title">Contáctanos</h2>
+                <form action="#" method="POST">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" required>
+                
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
