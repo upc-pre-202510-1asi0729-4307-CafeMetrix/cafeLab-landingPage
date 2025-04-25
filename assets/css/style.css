@@ -1,4 +1,292 @@
-/* Estilos generales para la sección FAQ y Contacto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: #F8F7F2;
+    color: #414535;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ======= HEADER ======= */
+.header {
+    background-color: #618985;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #414535;
+    border-radius: 50px;
+    width: 200px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.logo-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* Botones - Estados según diseño */
+.nav-link.primary,
+.language-button,
+.hero-button.primary {
+    background-color: #414535;
+    color: #F8F8F8;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+    padding: 12px 30px;
+}
+
+.language-button {
+    text-decoration: none; 
+    padding: 12px 20px;     
+    border-radius: 30px;    
+}
+
+.nav-link.primary:hover,
+.language-button:hover,
+.hero-button.primary:hover {
+    background-color: #F8F8F8;
+    color: #414535;
+    border: 2px solid transparent;
+}
+
+.nav-link.primary:active,
+.language-button:active,
+.hero-button.primary:active {
+    background-color: #F8F8F8;
+    color: #414535;
+    border: 2px solid #414535;
+    box-shadow: none;
+}
+
+.nav-link.primary:disabled,
+.language-button:disabled,
+.hero-button.primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.login-icon {
+    margin-right: 8px;
+}
+
+.language-icon {
+    margin-left: 8px;
+}
+
+/* ======= HERO ======= */
+.hero {
+    position: relative;
+    background-image: url('../img/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 90px;
+    color: #C19875;
+    text-transform: uppercase;
+    max-width: 50%;
+}
+
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 40%;
+}
+
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    line-height: 44px;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hero-button {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+/* ======= SECCIÓN 3 - DATOS Y DECISIONES ======= */
+.data-section {
+    background-color: #C19875;
+    padding: 80px 0;
+    color: #414535;
+}
+
+.data-section .container {
+    display: block;
+}
+
+.data-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.data-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.4;
+    margin-bottom: 80px;
+    color: #414535;
+    text-align: center;
+}
+
+.data-features {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.feature-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.feature-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.feature-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 49px;
+    margin-bottom: 20px;
+    color: #414535;
+    white-space: nowrap;
+}
+
+.feature-description {
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.6;
+    color: #414535;
+}
+
+.feature-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.device-mockup {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    border: 2px solid #000000;
+}
+
+.device-mockup img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+/* ======= SECCIÓN 6 - FAQ Y CONTACTO ======= */
 .faq-contact-section {
     background-color: #F2E3BC;
     min-height: 100vh;
@@ -8,7 +296,6 @@
     padding: 2rem;
 }
 
-/* Contenedor principal que envuelve FAQ y Contacto */
 .faq-contact-wrapper {
     background-color: #C19875;
     width: 1103px;
@@ -22,16 +309,14 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Estilos para la sección de Preguntas Frecuentes */
 .faq {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    overflow: auto;
+    /* Elimina: overflow: auto; */
 }
 
-/* Estilos compartidos para títulos de FAQ y Contacto */
 .faq-title, .contact-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 36px;
@@ -39,12 +324,10 @@
     margin-bottom: 20px;
 }
 
-/* Estilos para cada item de FAQ */
 .faq-item {
     margin-bottom: 1rem;
 }
 
-/* Estilos para las preguntas */
 .question {
     font-family: 'Arial', sans-serif;
     font-size: 24px;
@@ -52,7 +335,6 @@
     margin-bottom: 5px;
 }
 
-/* Estilos para las respuestas */
 .answer {
     margin: 0.3rem 0 1rem 0;
     font-family: 'Arial', sans-serif;
@@ -60,42 +342,38 @@
     margin-bottom: 15px;
 }
 
-/* Estilos para el enlace "Ver más" */
 .ver-mas {
     color: #4D4949;
     text-decoration: underline;
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 0.3rem; /* Reducir el margen superior */
 }
 
-/* Estilos para la sección de Contacto */
 .contact {
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    /* Elimina: overflow: auto; */
 }
 
-/* Estilos para el formulario de contacto */
 .contact form {
     background-color: #fff;
-    padding: 1.5rem;
+    padding: 1rem; /* Reducir el padding */
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem; /* Reducir el espacio entre elementos */
     color: #000;
 }
 
-/* Estilos para los campos de entrada del formulario */
+/* Ajustar los inputs y textarea */
 .contact input, .contact textarea {
-    padding: 0.8rem;
-    font-size: 1rem;
+    padding: 0.6rem; /* Reducir el padding de los campos */
+    font-size: 0.9rem; /* Reducir el tamaño de la fuente */
     border: 1px solid #ccc;
     border-radius: 8px;
 }
 
-/* Estilos para el botón de envío */
 .contact button {
     background-color: #2C2C2C;
     color: white;
@@ -106,33 +384,11 @@
     font-weight: bold;
 }
 
-/* Efecto hover para el botón */
 .contact button:hover {
     opacity: 0.9;
 }
 
-/* Media queries para diferentes tamaños de pantalla */
-
-/* Ajustes para tablets y dispositivos medianos */
-@media (max-width: 768px) {
-    .faq-contact-wrapper {
-        padding: 2rem; /* Reducimos el padding para pantallas pequeñas */
-    }
-
-    .faq {
-        flex: 1 1 100%; /* En móviles, la FAQ debe ocupar todo el ancho */
-    }
-
-    .contact form {
-        padding: 1rem; /* Reducimos el padding del formulario en pantallas pequeñas */
-    }
-
-    .contact input, .contact textarea {
-        padding: 0.6rem; /* Ajustamos los inputs para que queden bien en móviles */
-    }
-}
-
-/* Ajustes para pantallas grandes */
+/* ======= MEDIA QUERIES ======= */
 @media (max-width: 1200px) {
     .faq-contact-wrapper {
         width: 95%;
@@ -146,7 +402,69 @@
     }
 }
 
-/* Ajustes para dispositivos móviles pequeños */
+@media (max-width: 768px) {
+    .header .container {
+        flex-wrap: wrap;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 40px;
+        line-height: 1.2;
+        max-width: 100%;
+    }
+    
+    .hero-right {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+    
+    .hero-subtitle {
+        font-size: 24px;
+    }
+    
+    .feature-row,
+    .feature-row.reverse {
+        flex-direction: column;
+    }
+
+    .data-title {
+        font-size: 36px;
+    }
+
+    .data-subtitle {
+        font-size: 20px;
+    }
+
+    .feature-title {
+        font-size: 28px;
+    }
+
+    .feature-description {
+        font-size: 18px;
+    }
+    
+    .faq-contact-wrapper {
+        padding: 2rem;
+    }
+
+    .faq {
+        flex: 1 1 100%;
+    }
+
+    .contact form {
+        padding: 1rem;
+    }
+
+    .contact input, .contact textarea {
+        padding: 0.6rem;
+    }
+}
+
 @media (max-width: 600px) {
     .faq-contact-section {
         padding: 1rem;
