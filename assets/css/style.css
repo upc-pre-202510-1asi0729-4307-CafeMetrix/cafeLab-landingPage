@@ -574,3 +574,114 @@ body {
         font-size: 14px;
     }
 }
+.testimonios {
+    background-color: #c18c60;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff8f0;
+  }
+  
+  .testimonios h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #fff8e1;
+  }
+  
+  .testimonios-contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .testimonio {
+    max-width: 350px;
+    width: 100%;
+    background: #a9724a;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .testimonio img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .testimonio h3 {
+    color: #ffe7c2;
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+  }
+  
+  .testimonio p {
+    color: #fff;
+    font-size: 1em;
+  }
+  
+  /* Opiniones con estrellas */
+  .calificaciones {
+    background-color: #91b5b5;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .opinion {
+    max-width: 200px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .opinion img {
+    width: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .opinion h4 {
+    margin: 5px 0;
+    font-size: 1.1em;
+  }
+  
+  .opinion p {
+    font-size: 1.3em;
+    color: #ffc107;
+    margin: 0;
+  }
+  
+  .opinion span {
+    font-size: 0.9em;
+    color: #222;
+  }
+  
+  /* 📱 Responsive media query */
+  @media (max-width: 768px) {
+    .testimonios-contenedor, .calificaciones {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .testimonio, .opinion {
+      width: 90%;
+      max-width: 90%;
+    }
+  
+    .testimonios h2 {
+      font-size: 1.5em;
+    }
+  
+    .testimonio h3 {
+      font-size: 1em;
+    }
+  
+    .testimonio p {
+      font-size: 0.95em;
+    }
+  }
