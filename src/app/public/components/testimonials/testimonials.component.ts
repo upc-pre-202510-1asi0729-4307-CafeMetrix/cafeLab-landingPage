@@ -28,13 +28,13 @@ export class TestimonialsComponent {
     {
       name: 'Martin Gutierrez',
       title: 'Dueño de cafetería',
-      image: 'assets/img/Martin_guiterrez.jpg',
+      image: '/Martin_guiterrez.jpg',
       quote: 'Gracias a CafeLab pude optimizar mis procesos mediante documentaciones intuitivas, lo que mejoró mis planificaciones.'
     },
     {
       name: 'Ana Rivera',
       title: 'Barista en Lima',
-      image: 'assets/img/Ana_Rivera.jpg',
+      image: '/Ana_Rivera.jpg',
       quote: 'CafeLab me ayudó a estandarizar mis tuestes y reducir errores. Ahora todos en la cafetería usan la misma receta.'
     }
   ];
@@ -42,13 +42,13 @@ export class TestimonialsComponent {
   reviews: Review[] = [
     {
       name: 'Rosa Dominguez',
-      image: 'assets/img/Rosa.jpeg',
+      image: '/Rosa.jpeg',
       rating: 5,
       comment: 'Útil, fácil de usar'
     },
     {
       name: 'Miguel Diaz',
-      image: 'assets/img/Miguel.jpeg',
+      image: '/Miguel.jpeg',
       rating: 5,
       comment: 'Rentable'
     }
