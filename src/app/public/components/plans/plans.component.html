@@ -1,0 +1,27 @@
+<section id="planes" class="planes-cafetal">
+  <div class="planes-cafetal__container">
+    <h2 class="planes-cafetal__title">Escala tu café con herramientas a tu medida.</h2>
+
+    <div class="planes-cafetal__grid">
+      <div class="planes-cafetal__plan" *ngFor="let plan of plans">
+        <h3 class="planes-cafetal__plan-title">{{ plan.title }}</h3>
+        <div class="planes-cafetal__card">
+          <div class="planes-cafetal__price">{{ plan.price }}</div>
+          <ul class="planes-cafetal__features">
+            <li *ngFor="let feature of plan.features">{{ feature }}</li>
+          </ul>
+          <button
+            class="planes-cafetal__button"
+            (click)="onPlanSelect(plan)"
+          >
+            {{ plan.buttonText }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="planes-cafetal__footer">
+      <p>Todos nuestros planes incluyen documentación técnica, soporte personalizado y visualizaciones intuitivas para baristas y cafeterías.</p>
+    </div>
+  </div>
+</section>

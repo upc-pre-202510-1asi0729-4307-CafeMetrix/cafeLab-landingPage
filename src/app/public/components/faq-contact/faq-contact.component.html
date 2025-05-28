@@ -1,0 +1,59 @@
+<section id="faq-contacto" class="faq-contact-section">
+  <div class="faq-contact-wrapper">
+    <!-- Sección de Preguntas Frecuentes -->
+    <div class="faq">
+      <h2 class="faq-title">Preguntas Frecuentes (FAQ)</h2>
+      <div class="faq-item" *ngFor="let faq of faqs">
+        <p class="question">{{ faq.question }}</p>
+        <p class="answer">{{ faq.answer }}</p>
+      </div>
+      <a href="#" class="ver-mas" (click)="showMoreFAQs($event)">Ver más...</a>
+    </div>
+
+    <!-- Sección de Formulario de Contacto -->
+    <div class="contact">
+      <h2 class="contact-title">Contáctanos</h2>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          formControlName="nombre"
+          [class.error]="contactForm.get('nombre')?.invalid && contactForm.get('nombre')?.touched"
+        >
+
+        <label for="apellidos">Apellidos</label>
+        <input
+          type="text"
+          id="apellidos"
+          formControlName="apellidos"
+          [class.error]="contactForm.get('apellidos')?.invalid && contactForm.get('apellidos')?.touched"
+        >
+
+        <label for="email">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+        >
+
+        <label for="mensaje">Mensaje</label>
+        <textarea
+          id="mensaje"
+          formControlName="mensaje"
+          rows="4"
+          [class.error]="contactForm.get('mensaje')?.invalid && contactForm.get('mensaje')?.touched"
+        ></textarea>
+
+        <button
+          type="submit"
+          [disabled]="contactForm.invalid"
+          [class.disabled]="contactForm.invalid"
+        >
+          Enviar
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

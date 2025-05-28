@@ -1,0 +1,20 @@
+<section class="testimonios">
+  <h2>Esto dicen los que ya usan Café Lab.</h2>
+
+  <div class="testimonios-contenedor">
+    <div class="testimonio" *ngFor="let testimonial of testimonials">
+      <img [src]="testimonial.image" [alt]="testimonial.name" />
+      <h3>{{ testimonial.name }} - {{ testimonial.title }}</h3>
+      <p>"{{ testimonial.quote }}"</p>
+    </div>
+  </div>
+
+  <div class="calificaciones">
+    <div class="opinion" *ngFor="let review of reviews">
+      <img [src]="review.image" [alt]="review.name" />
+      <h4>{{ review.name }}</h4>
+      <p>{{ getStars(review.rating) }}</p>
+      <span>"{{ review.comment }}"</span>
+    </div>
+  </div>
+</section>
