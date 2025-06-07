@@ -1,7 +1,6 @@
 <section id="beneficios" class="beneficios">
   <div class="container">
-    <h2 class="beneficios__title">
-      Enfoque en <span class="underline">beneficios claros</span>.
+    <h2 class="beneficios__title" [innerHTML]="'BENEFITS.TITLE' | translate">
     </h2>
     <div class="beneficios__grid">
       <div class="beneficio-card" *ngFor="let benefit of benefits">
