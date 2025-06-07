@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {NgForOf} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgForOf } from '@angular/common';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 interface FooterSection {
   title: string;
@@ -15,36 +16,47 @@ interface FooterLink {
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  imports: [
-    NgForOf
-  ],
+  imports: [NgForOf, TranslateModule],
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent {
-  footerSections: FooterSection[] = [
-    {
-      title: 'Enlaces rápidos',
-      links: [
-        { text: 'Inicio', url: '#' },
-        { text: 'Beneficios', url: '#beneficios' },
-        { text: 'Planes', url: '#planes' },
-        { text: 'Contactos', url: '#faq-contacto' }
-      ]
-    },
-    {
-      title: 'Recursos',
-      links: [
-        { text: 'Blog', url: '#' },
-        { text: 'FAQ', url: '#faq-contacto' },
-        { text: 'Soporte', url: '#' }
-      ]
-    },
-    {
-      title: 'Contacto',
-      links: [
-        { text: 'contacto@cafemetrix.com', url: 'contacto@cafemetrix.com', isEmail: true },
-        { text: 'Teléfono: 123-456-789', url: 'tel:123456789' }
-      ]
-    }
-  ];
+export class FooterComponent implements OnInit {
+  footerSections: FooterSection[] = [];
+
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit() {
+    this.loadFooterSections();
+    this.translate.onLangChange.subscribe(() => {
+      this.loadFooterSections();
+    });
+  }
+
+  private loadFooterSections() {
+    this.footerSections = [
+      {
+        title: this.translate.instant('FOOTER.QUICK_LINKS.TITLE'),
+        links: [
+          { text: this.translate.instant('FOOTER.QUICK_LINKS.HOME'), url: '#' },
+          { text: this.translate.instant('FOOTER.QUICK_LINKS.BENEFITS'), url: '#beneficios' },
+          { text: this.translate.instant('FOOTER.QUICK_LINKS.PLANS'), url: '#planes' },
+          { text: this.translate.instant('FOOTER.QUICK_LINKS.CONTACT'), url: '#faq-contacto' }
+        ]
+      },
+      {
+        title: this.translate.instant('FOOTER.RESOURCES.TITLE'),
+        links: [
+          { text: this.translate.instant('FOOTER.RESOURCES.BLOG'), url: '#' },
+          { text: this.translate.instant('FOOTER.RESOURCES.FAQ'), url: '#faq-contacto' },
+          { text: this.translate.instant('FOOTER.RESOURCES.SUPPORT'), url: '#' }
+        ]
+      },
+      {
+        title: this.translate.instant('FOOTER.CONTACT_INFO.TITLE'),
+        links: [
+          { text: this.translate.instant('FOOTER.CONTACT_INFO.EMAIL'), url: 'contacto@cafemetrix.com', isEmail: true },
+          { text: this.translate.instant('FOOTER.CONTACT_INFO.PHONE'), url: 'tel:123456789' }
+        ]
+      }
+    ];
+  }
 }

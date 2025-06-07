@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgForOf} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NgForOf } from '@angular/common';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 interface FAQ {
   question: string;
@@ -17,31 +18,14 @@ interface ContactForm {
 @Component({
   selector: 'app-faq-contact',
   templateUrl: './faq-contact.component.html',
-  imports: [
-    NgForOf,
-    ReactiveFormsModule
-  ],
+  imports: [NgForOf, ReactiveFormsModule, TranslateModule],
   styleUrls: ['./faq-contact.component.css']
 })
-export class FaqContactComponent {
+export class FaqContactComponent implements OnInit {
   contactForm: FormGroup;
+  faqs: FAQ[] = [];
 
-  faqs: FAQ[] = [
-    {
-      question: '¿Puedo usar Cafelab si solo soy barista y no tengo cafetería?',
-      answer: '¡Claro! Cafelab se adapta tanto a baristas individuales como a cafeterías completas.'
-    },
-    {
-      question: '¿Qué diferencia hay entre los planes?',
-      answer: 'Los planes difieren en cantidad de usuarios, acceso a funciones avanzadas y módulos de análisis.'
-    },
-    {
-      question: '¿La app está disponible para móvil?',
-      answer: 'Sí, Cafelab funciona perfectamente desde navegador móvil. La app nativa está en desarrollo.'
-    }
-  ];
-
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private translate: TranslateService) {
     this.contactForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       apellidos: ['', [Validators.required, Validators.minLength(2)]],
@@ -50,17 +34,39 @@ export class FaqContactComponent {
     });
   }
 
+  ngOnInit() {
+    this.loadFAQs();
+    this.translate.onLangChange.subscribe(() => {
+      this.loadFAQs();
+    });
+  }
+
+  private loadFAQs() {
+    this.faqs = [
+      {
+        question: this.translate.instant('FAQ.FAQ_1.QUESTION'),
+        answer: this.translate.instant('FAQ.FAQ_1.ANSWER')
+      },
+      {
+        question: this.translate.instant('FAQ.FAQ_2.QUESTION'),
+        answer: this.translate.instant('FAQ.FAQ_2.ANSWER')
+      },
+      {
+        question: this.translate.instant('FAQ.FAQ_3.QUESTION'),
+        answer: this.translate.instant('FAQ.FAQ_3.ANSWER')
+      }
+    ];
+  }
+
   showMoreFAQs(event: Event) {
     event.preventDefault();
     console.log('Show more FAQs');
-    // Implement logic to show more FAQs
   }
 
   onSubmit() {
     if (this.contactForm.valid) {
       const formData: ContactForm = this.contactForm.value;
       console.log('Form submitted:', formData);
-      // Handle form submission
       this.contactForm.reset();
     }
   }

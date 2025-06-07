@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {NgForOf} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgForOf } from '@angular/common';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 interface Testimonial {
   name: string;
@@ -18,41 +19,53 @@ interface Review {
 @Component({
   selector: 'app-testimonials',
   templateUrl: './testimonials.component.html',
-  imports: [
-    NgForOf
-  ],
+  imports: [NgForOf, TranslateModule],
   styleUrls: ['./testimonials.component.css']
 })
-export class TestimonialsComponent {
-  testimonials: Testimonial[] = [
-    {
-      name: 'Martin Gutierrez',
-      title: 'Dueño de cafetería',
-      image: '/Martin_guiterrez.jpg',
-      quote: 'Gracias a CafeLab pude optimizar mis procesos mediante documentaciones intuitivas, lo que mejoró mis planificaciones.'
-    },
-    {
-      name: 'Ana Rivera',
-      title: 'Barista en Lima',
-      image: '/Ana_Rivera.jpg',
-      quote: 'CafeLab me ayudó a estandarizar mis tuestes y reducir errores. Ahora todos en la cafetería usan la misma receta.'
-    }
-  ];
+export class TestimonialsComponent implements OnInit {
+  testimonials: Testimonial[] = [];
+  reviews: Review[] = [];
 
-  reviews: Review[] = [
-    {
-      name: 'Rosa Dominguez',
-      image: '/Rosa.jpeg',
-      rating: 5,
-      comment: 'Útil, fácil de usar'
-    },
-    {
-      name: 'Miguel Diaz',
-      image: '/Miguel.jpeg',
-      rating: 5,
-      comment: 'Rentable'
-    }
-  ];
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit() {
+    this.loadTestimonials();
+    this.translate.onLangChange.subscribe(() => {
+      this.loadTestimonials();
+    });
+  }
+
+  private loadTestimonials() {
+    this.testimonials = [
+      {
+        name: this.translate.instant('TESTIMONIALS.TESTIMONIAL_1.NAME'),
+        title: this.translate.instant('TESTIMONIALS.TESTIMONIAL_1.TITLE'),
+        image: '/Martin_guiterrez.jpg',
+        quote: this.translate.instant('TESTIMONIALS.TESTIMONIAL_1.QUOTE')
+      },
+      {
+        name: this.translate.instant('TESTIMONIALS.TESTIMONIAL_2.NAME'),
+        title: this.translate.instant('TESTIMONIALS.TESTIMONIAL_2.TITLE'),
+        image: '/Ana_Rivera.jpg',
+        quote: this.translate.instant('TESTIMONIALS.TESTIMONIAL_2.QUOTE')
+      }
+    ];
+
+    this.reviews = [
+      {
+        name: this.translate.instant('TESTIMONIALS.REVIEW_1.NAME'),
+        image: '/Rosa.jpeg',
+        rating: 5,
+        comment: this.translate.instant('TESTIMONIALS.REVIEW_1.COMMENT')
+      },
+      {
+        name: this.translate.instant('TESTIMONIALS.REVIEW_2.NAME'),
+        image: '/Miguel.jpeg',
+        rating: 5,
+        comment: this.translate.instant('TESTIMONIALS.REVIEW_2.COMMENT')
+      }
+    ];
+  }
 
   getStars(rating: number): string {
     return '⭐'.repeat(rating);

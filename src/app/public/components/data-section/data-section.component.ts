@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {NgForOf} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgForOf } from '@angular/common';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 interface DataFeature {
   title: string;
@@ -11,24 +12,35 @@ interface DataFeature {
 @Component({
   selector: 'app-data-section',
   templateUrl: './data-section.component.html',
-  imports: [
-    NgForOf
-  ],
+  imports: [NgForOf, TranslateModule],
   styleUrls: ['./data-section.component.css']
 })
-export class DataSectionComponent {
-  features: DataFeature[] = [
-    {
-      title: 'Dashboard de inventario',
-      description: 'Seguimiento de lotes en tiempo real, stock de granos, y control de movimientos.',
-      image: '/dashboard_inventario.png',
-      reverse: false
-    },
-    {
-      title: 'Curvas de tueste',
-      description: 'Control preciso del desarrollo del tueste para maximizar las cualidades sensoriales de cada origen.',
-      image: '/curva_tueste.png',
-      reverse: true
-    }
-  ];
+export class DataSectionComponent implements OnInit {
+  features: DataFeature[] = [];
+
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit() {
+    this.loadFeatures();
+    this.translate.onLangChange.subscribe(() => {
+      this.loadFeatures();
+    });
+  }
+
+  private loadFeatures() {
+    this.features = [
+      {
+        title: this.translate.instant('DATA_SECTION.INVENTORY_DASHBOARD.TITLE'),
+        description: this.translate.instant('DATA_SECTION.INVENTORY_DASHBOARD.DESCRIPTION'),
+        image: '/dashboard_inventario.png',
+        reverse: false
+      },
+      {
+        title: this.translate.instant('DATA_SECTION.ROASTING_CURVES.TITLE'),
+        description: this.translate.instant('DATA_SECTION.ROASTING_CURVES.DESCRIPTION'),
+        image: '/curva_tueste.png',
+        reverse: true
+      }
+    ];
+  }
 }
