@@ -1,0 +1,157 @@
+{
+  "HEADER": {
+    "BENEFITS": "Beneficios",
+    "PLANS": "Planes",
+    "CONTACT": "Contactos",
+    "LOGIN": "Iniciar sesión"
+  },
+  "HERO": {
+    "TITLE": "DOMINIO TOTAL SOBRE TU CAFÉ.",
+    "SUBTITLE": "Descubre lo que Café Lab tiene para ofrecerte",
+    "REGISTER": "Quiero registrarme"
+  },
+  "BENEFITS": {
+    "TITLE": "Enfoque en <span class=\"underline\">beneficios claros</span>.",
+    "BARISTA": {
+      "TITLE": "Soy barista",
+      "DESCRIPTION": "Documenta tus recetas, eleva tu técnica y construye un perfil sensorial único que defina tu estilo como profesional.",
+      "CTA_HIGHLIGHT": "Perfecciona",
+      "CTA_REST": "tu arte.",
+      "BUTTON": "Ver herramientas para baristas"
+    },
+    "COFFEE_SHOP": {
+      "TITLE": "Tengo una cafetería",
+      "DESCRIPTION": "Optimiza tu inventario, garantiza la trazabilidad de tus productos y profesionaliza cada aspecto de tu operación cafetera.",
+      "CTA_HIGHLIGHT": "Impulsa",
+      "CTA_REST": "tu negocio.",
+      "BUTTON": "Ver soluciones para negocios"
+    }
+  },
+  "DATA_SECTION": {
+    "TITLE": "Datos que respaldan tus decisiones.",
+    "SUBTITLE": "Desde la curva hasta el inventario, Café Lab documenta cada paso.",
+    "INVENTORY_DASHBOARD": {
+      "TITLE": "Dashboard de inventario",
+      "DESCRIPTION": "Seguimiento de lotes en tiempo real, stock de granos, y control de movimientos."
+    },
+    "ROASTING_CURVES": {
+      "TITLE": "Curvas de tueste",
+      "DESCRIPTION": "Control preciso del desarrollo del tueste para maximizar las cualidades sensoriales de cada origen."
+    }
+  },
+  "PLANS": {
+    "TITLE": "Escala tu café con herramientas a tu medida.",
+    "FOOTER": "Todos nuestros planes incluyen documentación técnica, soporte personalizado y visualizaciones intuitivas para baristas y cafeterías.",
+    "BASE_PLAN": {
+      "TITLE": "Plan Base Cafetal",
+      "PRICE": "s/.19/mes",
+      "FEATURES": [
+        "✓ Registro básico de tuestes (manual).",
+        "✓ Biblioteca de recetas y módulos.",
+        "✓ Registro de defectos comunes.",
+        "✓ Guía de almacenamiento y control simple de inventario.",
+        "✓ Acceso desde móvil."
+      ],
+      "BUTTON": "Conocer Plan Base Cafetal"
+    },
+    "TECHNICAL_PLAN": {
+      "TITLE": "Plan Técnico de Tueste",
+      "PRICE": "s/.49/mes",
+      "FEATURES": [
+        "✓ Todo Plan Base Cafetal.",
+        "✓ Costos automatizados y comparativo por lote.",
+        "✓ Registro digital de tuestes con curvas personalizadas.",
+        "✓ Calculadora de pérdida de peso y rendimiento.",
+        "✓ Biblioteca extendida de perfiles y curvas por origen."
+      ],
+      "BUTTON": "Conocer Plan Técnico de Tueste"
+    },
+    "ARTIST_PLAN": {
+      "TITLE": "Plan Artista del Tueste",
+      "PRICE": "s/.59/mes",
+      "FEATURES": [
+        "✓ Gestor de recetas personalizadas por método y bebida.",
+        "✓ Calibrador de molinos y ratio.",
+        "✓ Portafolio con notas por cliente, origen o evaluación.",
+        "✓ Registro de extracciones y resultados."
+      ],
+      "BUTTON": "Conocer Plan Artista del Tueste"
+    },
+    "SPECIALTY_PLAN": {
+      "TITLE": "Plan D' Especialidad",
+      "PRICE": "s/.81/mes",
+      "FEATURES": [
+        "✓ Control de inventario (verde y tostado).",
+        "✓ Conectividad con sensores IoT (tostadoras).",
+        "✓ Modelado y control sensorial.",
+        "✓ Módulos de certificaciones y capacitaciones."
+      ],
+      "BUTTON": "Conocer Plan D' Especialidad"
+    }
+  },
+  "TESTIMONIALS": {
+    "TITLE": "Esto dicen los que ya usan Café Lab.",
+    "TESTIMONIAL_1": {
+      "NAME": "Martin Gutierrez",
+      "TITLE": "Dueño de cafetería",
+      "QUOTE": "Gracias a CafeLab pude optimizar mis procesos mediante documentaciones intuitivas, lo que mejoró mis planificaciones."
+    },
+    "TESTIMONIAL_2": {
+      "NAME": "Ana Rivera",
+      "TITLE": "Barista en Lima",
+      "QUOTE": "CafeLab me ayudó a estandarizar mis tuestes y reducir errores. Ahora todos en la cafetería usan la misma receta."
+    },
+    "REVIEW_1": {
+      "NAME": "Rosa Dominguez",
+      "COMMENT": "Útil, fácil de usar"
+    },
+    "REVIEW_2": {
+      "NAME": "Miguel Diaz",
+      "COMMENT": "Rentable"
+    }
+  },
+  "FAQ": {
+    "TITLE": "Preguntas Frecuentes (FAQ)",
+    "VIEW_MORE": "Ver más...",
+    "FAQ_1": {
+      "QUESTION": "¿Puedo usar Cafelab si solo soy barista y no tengo cafetería?",
+      "ANSWER": "¡Claro! Cafelab se adapta tanto a baristas individuales como a cafeterías completas."
+    },
+    "FAQ_2": {
+      "QUESTION": "¿Qué diferencia hay entre los planes?",
+      "ANSWER": "Los planes difieren en cantidad de usuarios, acceso a funciones avanzadas y módulos de análisis."
+    },
+    "FAQ_3": {
+      "QUESTION": "¿La app está disponible para móvil?",
+      "ANSWER": "Sí, Cafelab funciona perfectamente desde navegador móvil. La app nativa está en desarrollo."
+    }
+  },
+  "CONTACT": {
+    "TITLE": "Contáctanos",
+    "NAME": "Nombre",
+    "LASTNAME": "Apellidos",
+    "EMAIL": "Correo electrónico",
+    "MESSAGE": "Mensaje",
+    "SEND": "Enviar"
+  },
+  "FOOTER": {
+    "QUICK_LINKS": {
+      "TITLE": "Enlaces rápidos",
+      "HOME": "Inicio",
+      "BENEFITS": "Beneficios",
+      "PLANS": "Planes",
+      "CONTACT": "Contactos"
+    },
+    "RESOURCES": {
+      "TITLE": "Recursos",
+      "BLOG": "Blog",
+      "FAQ": "FAQ",
+      "SUPPORT": "Soporte"
+    },
+    "CONTACT_INFO": {
+      "TITLE": "Contacto",
+      "EMAIL": "contacto@cafemetrix.com",
+      "PHONE": "Teléfono: 123-456-789"
+    }
+  }
+}
