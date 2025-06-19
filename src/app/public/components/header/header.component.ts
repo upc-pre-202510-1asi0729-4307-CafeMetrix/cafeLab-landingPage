@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   currentLanguage = 'ES';
+  isMobileMenuOpen = false;
 
   constructor(private translate: TranslateService) {
 
@@ -23,5 +24,13 @@ export class HeaderComponent {
 
     this.currentLanguage = newLang;
     this.translate.use(langCode);
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
   }
 }

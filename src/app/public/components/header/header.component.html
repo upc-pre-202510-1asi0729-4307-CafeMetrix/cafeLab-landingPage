@@ -1,4 +1,3 @@
-
 <header class="header">
   <div class="container">
     <div class="logo">
@@ -23,6 +22,31 @@
           <polyline points="6 9 12 15 18 9"/>
         </svg>
       </button>
+
+      <div class="hamburger" [class.active]="isMobileMenuOpen" (click)="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </div>
+  
+  <nav class="nav-mobile" [class.active]="isMobileMenuOpen">
+    <a href="#beneficios" class="nav-link primary" (click)="closeMobileMenu()">{{ 'HEADER.BENEFITS' | translate }}</a>
+    <a href="#planes" class="nav-link primary" (click)="closeMobileMenu()">{{ 'HEADER.PLANS' | translate }}</a>
+    <a href="#faq-contacto" class="nav-link primary" (click)="closeMobileMenu()">{{ 'HEADER.CONTACT' | translate }}</a>
+    <a href="#iniciar-sesion" class="nav-link primary login" (click)="closeMobileMenu()">
+      <svg class="login-icon icon-person" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      {{ 'HEADER.LOGIN' | translate }}
+    </a>
+    <button class="language-button primary" (click)="toggleLanguage()">
+      {{ currentLanguage }}
+      <svg class="language-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </button>
+  </nav>
 </header>
