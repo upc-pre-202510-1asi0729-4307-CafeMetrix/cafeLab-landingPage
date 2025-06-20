@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import {LanguageService} from '../../../core/services/language.service';
 
 interface Plan {
   title: string;
@@ -18,10 +19,15 @@ interface Plan {
 export class PlansComponent implements OnInit {
   plans: Plan[] = [];
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService, private languageService: LanguageService) {}
 
   ngOnInit() {
-    this.loadPlans();
+    this.languageService.waitForTranslations().subscribe(loaded => {
+      if (loaded) {
+        this.loadPlans();
+      }
+    });
+
     this.translate.onLangChange.subscribe(() => {
       this.loadPlans();
     });

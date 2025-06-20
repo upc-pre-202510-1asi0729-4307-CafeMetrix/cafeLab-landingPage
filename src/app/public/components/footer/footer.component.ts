@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import {LanguageService} from '../../../core/services/language.service';
 
 interface FooterSection {
   title: string;
@@ -22,10 +23,15 @@ interface FooterLink {
 export class FooterComponent implements OnInit {
   footerSections: FooterSection[] = [];
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService, private languageService: LanguageService) {}
 
   ngOnInit() {
-    this.loadFooterSections();
+    this.languageService.waitForTranslations().subscribe(loaded => {
+      if (loaded) {
+        this.loadFooterSections();
+      }
+    });
+
     this.translate.onLangChange.subscribe(() => {
       this.loadFooterSections();
     });

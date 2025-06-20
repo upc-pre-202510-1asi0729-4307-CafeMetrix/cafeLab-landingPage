@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgForOf, NgIf } from '@angular/common';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import {LanguageService} from '../../../core/services/language.service';
 
 interface FAQ {
   question: string;
@@ -25,7 +26,7 @@ export class FaqContactComponent implements OnInit {
   contactForm: FormGroup;
   faqs: FAQ[] = [];
 
-  constructor(private fb: FormBuilder, private translate: TranslateService) {
+  constructor(private fb: FormBuilder, private translate: TranslateService,private languageService: LanguageService) {
     this.contactForm = this.fb.group({
       nombre: ['', [
         Validators.required,
@@ -56,7 +57,12 @@ export class FaqContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadFAQs();
+    this.languageService.waitForTranslations().subscribe(loaded => {
+      if (loaded) {
+        this.loadFAQs();
+      }
+    });
+
     this.translate.onLangChange.subscribe(() => {
       this.loadFAQs();
     });

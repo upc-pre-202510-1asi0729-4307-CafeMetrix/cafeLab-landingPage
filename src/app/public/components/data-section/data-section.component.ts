@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import {LanguageService} from '../../../core/services/language.service';
 
 interface DataFeature {
   title: string;
@@ -18,10 +19,15 @@ interface DataFeature {
 export class DataSectionComponent implements OnInit {
   features: DataFeature[] = [];
 
-  constructor(private translate: TranslateService) {}
+  constructor(private languageService: LanguageService, private translate: TranslateService) {};
 
   ngOnInit() {
-    this.loadFeatures();
+    this.languageService.waitForTranslations().subscribe(loaded => {
+      if (loaded) {
+        this.loadFeatures();
+      }
+    });
+
     this.translate.onLangChange.subscribe(() => {
       this.loadFeatures();
     });

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf, CommonModule } from '@angular/common';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import {LanguageService} from '../../../core/services/language.service';
 
 interface Benefit {
   title: string;
@@ -22,10 +23,15 @@ interface Benefit {
 export class BenefitsComponent implements OnInit {
   benefits: Benefit[] = [];
 
-  constructor(private translate: TranslateService) {}
+  constructor(private languageService: LanguageService, private translate: TranslateService) {};
 
   ngOnInit() {
-    this.loadBenefits();
+    this.languageService.waitForTranslations().subscribe(loaded => {
+      if (loaded) {
+        this.loadBenefits();
+      }
+    });
+
     this.translate.onLangChange.subscribe(() => {
       this.loadBenefits();
     });

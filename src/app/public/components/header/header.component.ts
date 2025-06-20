@@ -21,10 +21,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    // Sincronizar con el servicio de idioma
     this.currentLanguage = this.languageService.getCurrentLanguageDisplay();
 
-    // Suscribirse a cambios de idioma
     this.languageSubscription = this.languageService.currentLanguage$.subscribe(lang => {
       this.currentLanguage = lang === 'es' ? 'ES' : 'EN';
     });

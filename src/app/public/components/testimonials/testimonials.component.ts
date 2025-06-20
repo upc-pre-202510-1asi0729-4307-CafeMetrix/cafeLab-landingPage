@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import {LanguageService} from '../../../core/services/language.service';
 
 interface Testimonial {
   name: string;
@@ -26,10 +27,15 @@ export class TestimonialsComponent implements OnInit {
   testimonials: Testimonial[] = [];
   reviews: Review[] = [];
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService, private languageService: LanguageService) {}
 
   ngOnInit() {
-    this.loadTestimonials();
+    this.languageService.waitForTranslations().subscribe(loaded => {
+      if (loaded) {
+        this.loadTestimonials();
+      }
+    });
+
     this.translate.onLangChange.subscribe(() => {
       this.loadTestimonials();
     });
