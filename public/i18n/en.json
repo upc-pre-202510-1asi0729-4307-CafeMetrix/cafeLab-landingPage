@@ -132,7 +132,23 @@
     "LASTNAME": "Last Name",
     "EMAIL": "Email",
     "MESSAGE": "Message",
-    "SEND": "Send"
+    "SEND": "Send",
+    "RESET": "Clear",
+    "REQUIRED_FIELDS": "Required fields",
+    "NAME_PLACEHOLDER": "Enter your name",
+    "LASTNAME_PLACEHOLDER": "Enter your last name",
+    "EMAIL_PLACEHOLDER": "example@email.com",
+    "MESSAGE_PLACEHOLDER": "Write your message here..."
+  },
+  "VALIDATION": {
+    "REQUIRED": "This field is required",
+    "MIN_LENGTH": "Minimum {{min}} characters",
+    "MAX_LENGTH": "Maximum {{max}} characters",
+    "NO_NUMBERS": "Numbers are not allowed",
+    "NO_SPECIAL_CHARS": "Special characters are not allowed",
+    "INVALID_EMAIL": "Invalid email address",
+    "INVALID_DOMAIN": "Invalid email domain",
+    "NO_ONLY_SPACES": "Cannot contain only spaces"
   },
   "FOOTER": {
     "QUICK_LINKS": {

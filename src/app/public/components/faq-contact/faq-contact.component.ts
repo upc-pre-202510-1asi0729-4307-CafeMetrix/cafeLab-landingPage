@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgForOf } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { NgForOf, NgIf } from '@angular/common';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 interface FAQ {
@@ -18,7 +18,7 @@ interface ContactForm {
 @Component({
   selector: 'app-faq-contact',
   templateUrl: './faq-contact.component.html',
-  imports: [NgForOf, ReactiveFormsModule, TranslateModule],
+  imports: [NgForOf, NgIf, ReactiveFormsModule, TranslateModule],
   styleUrls: ['./faq-contact.component.css']
 })
 export class FaqContactComponent implements OnInit {
@@ -27,10 +27,31 @@ export class FaqContactComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private translate: TranslateService) {
     this.contactForm = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(2)]],
-      apellidos: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.email]],
-      mensaje: ['', [Validators.required, Validators.minLength(10)]]
+      nombre: ['', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(50),
+        this.noNumbersValidator,
+        this.noSpecialCharsValidator
+      ]],
+      apellidos: ['', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(50),
+        this.noNumbersValidator,
+        this.noSpecialCharsValidator
+      ]],
+      email: ['', [
+        Validators.required,
+        Validators.email,
+        this.emailDomainValidator
+      ]],
+      mensaje: ['', [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(500),
+        this.noOnlySpacesValidator
+      ]]
     });
   }
 
@@ -39,6 +60,37 @@ export class FaqContactComponent implements OnInit {
     this.translate.onLangChange.subscribe(() => {
       this.loadFAQs();
     });
+  }
+
+  private noNumbersValidator(control: AbstractControl): ValidationErrors | null {
+    if (!control.value) return null;
+    const hasNumbers = /\d/.test(control.value);
+    return hasNumbers ? { hasNumbers: true } : null;
+  }
+
+  private noSpecialCharsValidator(control: AbstractControl): ValidationErrors | null {
+    if (!control.value) return null;
+    const hasSpecialChars = /[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]/.test(control.value);
+    return hasSpecialChars ? { hasSpecialChars: true } : null;
+  }
+
+  private emailDomainValidator(control: AbstractControl): ValidationErrors | null {
+    if (!control.value) return null;
+    const validDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'empresa.com'];
+    const email = control.value.toLowerCase();
+    const domain = email.split('@')[1];
+
+    if (domain && !validDomains.some(validDomain => domain.includes(validDomain.split('.')[0]))) {
+      const domainPattern = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/;
+      return domainPattern.test(domain) ? null : { invalidDomain: true };
+    }
+    return null;
+  }
+
+  private noOnlySpacesValidator(control: AbstractControl): ValidationErrors | null {
+    if (!control.value) return null;
+    const isOnlySpaces = control.value.trim().length === 0;
+    return isOnlySpaces ? { onlySpaces: true } : null;
   }
 
   private loadFAQs() {
@@ -58,16 +110,101 @@ export class FaqContactComponent implements OnInit {
     ];
   }
 
+  getFieldError(fieldName: string): string {
+    const field = this.contactForm.get(fieldName);
+    if (!field || !field.errors || !field.touched) return '';
+
+    const errors = field.errors;
+
+    switch (fieldName) {
+      case 'nombre':
+      case 'apellidos':
+        if (errors['required']) return this.translate.instant('VALIDATION.REQUIRED');
+        if (errors['minlength']) return this.translate.instant('VALIDATION.MIN_LENGTH', { min: 2 });
+        if (errors['maxlength']) return this.translate.instant('VALIDATION.MAX_LENGTH', { max: 50 });
+        if (errors['hasNumbers']) return this.translate.instant('VALIDATION.NO_NUMBERS');
+        if (errors['hasSpecialChars']) return this.translate.instant('VALIDATION.NO_SPECIAL_CHARS');
+        break;
+
+      case 'email':
+        if (errors['required']) return this.translate.instant('VALIDATION.REQUIRED');
+        if (errors['email']) return this.translate.instant('VALIDATION.INVALID_EMAIL');
+        if (errors['invalidDomain']) return this.translate.instant('VALIDATION.INVALID_DOMAIN');
+        break;
+
+      case 'mensaje':
+        if (errors['required']) return this.translate.instant('VALIDATION.REQUIRED');
+        if (errors['minlength']) return this.translate.instant('VALIDATION.MIN_LENGTH', { min: 10 });
+        if (errors['maxlength']) return this.translate.instant('VALIDATION.MAX_LENGTH', { max: 500 });
+        if (errors['onlySpaces']) return this.translate.instant('VALIDATION.NO_ONLY_SPACES');
+        break;
+    }
+
+    return '';
+  }
+
+  isFieldValid(fieldName: string): boolean {
+    const field = this.contactForm.get(fieldName);
+    return field ? field.valid && field.touched : false;
+  }
+
+  isFieldInvalid(fieldName: string): boolean {
+    const field = this.contactForm.get(fieldName);
+    return field ? field.invalid && field.touched : false;
+  }
+
   showMoreFAQs(event: Event) {
     event.preventDefault();
     console.log('Show more FAQs');
   }
 
   onSubmit() {
+    this.markAllFieldsAsTouched();
+
     if (this.contactForm.valid) {
       const formData: ContactForm = this.contactForm.value;
-      console.log('Form submitted:', formData);
+
+      // Limpiar datos antes de enviar
+      const cleanedData = {
+        nombre: formData.nombre.trim(),
+        apellidos: formData.apellidos.trim(),
+        email: formData.email.trim().toLowerCase(),
+        mensaje: formData.mensaje.trim()
+      };
+
+      console.log('Form submitted:', cleanedData);
+
+      // Simular envío exitoso
+      this.showSuccessMessage();
       this.contactForm.reset();
+    } else {
+      console.log('Form is invalid');
+      this.showValidationErrors();
     }
+  }
+
+  private markAllFieldsAsTouched() {
+    Object.keys(this.contactForm.controls).forEach(key => {
+      this.contactForm.get(key)?.markAsTouched();
+    });
+  }
+
+  private showSuccessMessage() {
+    console.log('Mensaje enviado exitosamente');
+  }
+
+  private showValidationErrors() {
+    console.log('Por favor, corrige los errores en el formulario');
+  }
+
+  resetForm() {
+    this.contactForm.reset();
+    this.markAllFieldsAsUntouched();
+  }
+
+  private markAllFieldsAsUntouched() {
+    Object.keys(this.contactForm.controls).forEach(key => {
+      this.contactForm.get(key)?.markAsUntouched();
+    });
   }
 }

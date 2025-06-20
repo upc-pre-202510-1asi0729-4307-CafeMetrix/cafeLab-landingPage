@@ -132,7 +132,23 @@
     "LASTNAME": "Apellidos",
     "EMAIL": "Correo electrónico",
     "MESSAGE": "Mensaje",
-    "SEND": "Enviar"
+    "SEND": "Enviar",
+    "RESET": "Limpiar",
+    "REQUIRED_FIELDS": "Campos requeridos",
+    "NAME_PLACEHOLDER": "Ingresa tu nombre",
+    "LASTNAME_PLACEHOLDER": "Ingresa tus apellidos",
+    "EMAIL_PLACEHOLDER": "ejemplo@correo.com",
+    "MESSAGE_PLACEHOLDER": "Escribe tu mensaje aquí..."
+  },
+  "VALIDATION": {
+    "REQUIRED": "Este campo es obligatorio",
+    "MIN_LENGTH": "Mínimo {{min}} caracteres",
+    "MAX_LENGTH": "Máximo {{max}} caracteres",
+    "NO_NUMBERS": "No se permiten números",
+    "NO_SPECIAL_CHARS": "No se permiten caracteres especiales",
+    "INVALID_EMAIL": "Correo electrónico inválido",
+    "INVALID_DOMAIN": "Dominio de correo inválido",
+    "NO_ONLY_SPACES": "No puede contener solo espacios"
   },
   "FOOTER": {
     "QUICK_LINKS": {
