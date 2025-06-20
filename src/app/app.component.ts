@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {HeaderComponent} from './public/components/header/header.component';
 import {HeroComponent} from './public/components/hero/hero.component';
 import {BenefitsComponent} from './public/components/benefits/benefits.component';
@@ -7,6 +7,7 @@ import {PlansComponent} from './public/components/plans/plans.component';
 import {TestimonialsComponent} from './public/components/testimonials/testimonials.component';
 import {FaqContactComponent} from './public/components/faq-contact/faq-contact.component';
 import {FooterComponent} from './public/components/footer/footer.component';
+import { LanguageService } from './core/services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,10 @@ import {FooterComponent} from './public/components/footer/footer.component';
   ],
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'cafelab';
+  constructor(private languageService: LanguageService) {}
+  ngOnInit() {
+    this.languageService.setLanguage('es');
+  }
 }

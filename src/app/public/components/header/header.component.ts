@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../../core/services/language.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,22 +10,34 @@ import { CommonModule } from '@angular/common';
   imports: [TranslateModule, CommonModule],
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   currentLanguage = 'ES';
   isMobileMenuOpen = false;
+  private languageSubscription?: Subscription;
 
-  constructor(private translate: TranslateService) {
+  constructor(
+    private translate: TranslateService,
+    private languageService: LanguageService
+  ) {}
 
-    this.translate.setDefaultLang('es');
-    this.translate.use('es');
+  ngOnInit() {
+    // Sincronizar con el servicio de idioma
+    this.currentLanguage = this.languageService.getCurrentLanguageDisplay();
+
+    // Suscribirse a cambios de idioma
+    this.languageSubscription = this.languageService.currentLanguage$.subscribe(lang => {
+      this.currentLanguage = lang === 'es' ? 'ES' : 'EN';
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.languageSubscription) {
+      this.languageSubscription.unsubscribe();
+    }
   }
 
   toggleLanguage() {
-    const newLang = this.currentLanguage === 'ES' ? 'EN' : 'ES';
-    const langCode = newLang === 'ES' ? 'es' : 'en';
-
-    this.currentLanguage = newLang;
-    this.translate.use(langCode);
+    this.languageService.switchLanguage();
   }
 
   toggleMobileMenu() {
