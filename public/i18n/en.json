@@ -1,0 +1,178 @@
+{
+  "HEADER": {
+    "BENEFITS": "Benefits",
+    "PLANS": "Plans",
+    "CONTACT": "Contact",
+    "LOGIN": "Sign In"
+  },
+  "HERO": {
+    "TITLE": "TOTAL CONTROL OVER YOUR COFFEE.",
+    "SUBTITLE": "Discover what Café Lab has to offer you",
+    "REGISTER": "I want to register"
+  },
+  "BENEFITS": {
+    "TITLE": "Focus on <span class=\"underline\">clear benefits</span>.",
+    "BARISTA": {
+      "TITLE": "I'm a barista",
+      "DESCRIPTION": "Document your recipes, elevate your technique and build a unique sensory profile that defines your style as a professional.",
+      "CTA_HIGHLIGHT": "Perfect",
+      "CTA_REST": "your art.",
+      "BUTTON": "View tools for baristas"
+    },
+    "COFFEE_SHOP": {
+      "TITLE": "I have a coffee shop",
+      "DESCRIPTION": "Optimize your inventory, guarantee product traceability and professionalize every aspect of your coffee operation.",
+      "CTA_HIGHLIGHT": "Boost",
+      "CTA_REST": "your business.",
+      "BUTTON": "View business solutions"
+    }
+  },
+  "DATA_SECTION": {
+    "TITLE": "Data that supports your decisions.",
+    "SUBTITLE": "From curve to inventory, Café Lab documents every step.",
+    "INVENTORY_DASHBOARD": {
+      "TITLE": "Inventory dashboard",
+      "DESCRIPTION": "Real-time batch tracking, bean stock, and movement control."
+    },
+    "ROASTING_CURVES": {
+      "TITLE": "Roasting curves",
+      "DESCRIPTION": "Precise control of roast development to maximize the sensory qualities of each origin."
+    }
+  },
+  "PLANS": {
+    "TITLE": "Scale your coffee with tools tailored to you.",
+    "FOOTER": "All our plans include technical documentation, personalized support and intuitive visualizations for baristas and coffee shops.",
+    "BASE_PLAN": {
+      "TITLE": "Base Coffee Plan",
+      "PRICE": "$5/month",
+      "FEATURES": [
+        "✓ Basic roast recording (manual).",
+        "✓ Recipe and module library.",
+        "✓ Common defect recording.",
+        "✓ Storage guide and simple inventory control.",
+        "✓ Mobile access."
+      ],
+      "BUTTON": "Learn about Base Coffee Plan"
+    },
+    "TECHNICAL_PLAN": {
+      "TITLE": "Technical Roasting Plan",
+      "PRICE": "$12/month",
+      "FEATURES": [
+        "✓ Everything from Base Coffee Plan.",
+        "✓ Automated costs and batch comparison.",
+        "✓ Digital roast recording with custom curves.",
+        "✓ Weight loss and yield calculator.",
+        "✓ Extended library of profiles and curves by origin."
+      ],
+      "BUTTON": "Learn about Technical Roasting Plan"
+    },
+    "ARTIST_PLAN": {
+      "TITLE": "Roasting Artist Plan",
+      "PRICE": "$15/month",
+      "FEATURES": [
+        "✓ Custom recipe manager by method and beverage.",
+        "✓ Grinder and ratio calibrator.",
+        "✓ Portfolio with notes by client, origin or evaluation.",
+        "✓ Extraction and results recording."
+      ],
+      "BUTTON": "Learn about Roasting Artist Plan"
+    },
+    "SPECIALTY_PLAN": {
+      "TITLE": "Specialty Plan",
+      "PRICE": "$20/month",
+      "FEATURES": [
+        "✓ Inventory control (green and roasted).",
+        "✓ IoT sensor connectivity (roasters).",
+        "✓ Sensory modeling and control.",
+        "✓ Certification and training modules."
+      ],
+      "BUTTON": "Learn about Specialty Plan"
+    }
+  },
+  "TESTIMONIALS": {
+    "TITLE": "This is what those who already use Café Lab say.",
+    "TESTIMONIAL_1": {
+      "NAME": "Martin Gutierrez",
+      "TITLE": "Coffee shop owner",
+      "QUOTE": "Thanks to CafeLab I was able to optimize my processes through intuitive documentation, which improved my planning."
+    },
+    "TESTIMONIAL_2": {
+      "NAME": "Ana Rivera",
+      "TITLE": "Barista in Lima",
+      "QUOTE": "CafeLab helped me standardize my roasts and reduce errors. Now everyone in the coffee shop uses the same recipe."
+    },
+    "REVIEW_1": {
+      "NAME": "Rosa Dominguez",
+      "COMMENT": "Useful, easy to use"
+    },
+    "REVIEW_2": {
+      "NAME": "Miguel Diaz",
+      "COMMENT": "Cost-effective"
+    }
+  },
+  "FAQ": {
+    "TITLE": "Frequently Asked Questions (FAQ)",
+    "VIEW_MORE": "View more...",
+    "FAQ_1": {
+      "QUESTION": "Can I use Cafelab if I'm just a barista and don't have a coffee shop?",
+      "ANSWER": "Of course! Cafelab adapts to both individual baristas and complete coffee shops."
+    },
+    "FAQ_2": {
+      "QUESTION": "What's the difference between the plans?",
+      "ANSWER": "Plans differ in number of users, access to advanced features and analysis modules."
+    },
+    "FAQ_3": {
+      "QUESTION": "Is the app available for mobile?",
+      "ANSWER": "Yes, Cafelab works perfectly from mobile browser. The native app is in development."
+    }
+  },
+  "CONTACT": {
+    "TITLE": "Contact Us",
+    "NAME": "Name",
+    "LASTNAME": "Last Name",
+    "EMAIL": "Email",
+    "MESSAGE": "Message",
+    "SEND": "Send",
+    "RESET": "Clear",
+    "REQUIRED_FIELDS": "Required fields",
+    "NAME_PLACEHOLDER": "Enter your name",
+    "LASTNAME_PLACEHOLDER": "Enter your last name",
+    "EMAIL_PLACEHOLDER": "example@email.com",
+    "MESSAGE_PLACEHOLDER": "Write your message here..."
+  },
+  "VALIDATION": {
+    "REQUIRED": "This field is required",
+    "MIN_LENGTH": "Minimum {{min}} characters",
+    "MAX_LENGTH": "Maximum {{max}} characters",
+    "NO_NUMBERS": "Numbers are not allowed",
+    "NO_SPECIAL_CHARS": "Special characters are not allowed",
+    "INVALID_EMAIL": "Invalid email address",
+    "INVALID_DOMAIN": "Invalid email domain",
+    "NO_ONLY_SPACES": "Cannot contain only spaces"
+  },
+  "FOOTER": {
+    "QUICK_LINKS": {
+      "TITLE": "Quick Links",
+      "HOME": "Home",
+      "BENEFITS": "Benefits",
+      "PLANS": "Plans",
+      "CONTACT": "Contact"
+    },
+
+    "RESOURCES": {
+      "TITLE": "Resources",
+      "LINKEDIN": "LinkedIn",
+      "EMAIL": "Email"
+    },
+    "CONTACT_INFO": {
+      "TITLE": "Contact",
+      "EMAIL": "contacto@cafelab.com",
+      "WHATSAPP": "WhatsApp: +51 991 829 980"
+    }
+  },
+  "VIDEOS": {
+    "TITLE": "Learn more about us",
+    "ABOUT_TEAM": "About the team",
+    "ABOUT_PRODUCT": "About the product"
+  }
+}

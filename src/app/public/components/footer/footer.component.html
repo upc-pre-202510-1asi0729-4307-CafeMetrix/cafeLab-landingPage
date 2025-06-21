@@ -1,0 +1,20 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section" *ngFor="let section of footerSections">
+        <h3>{{ section.title }}</h3>
+        <ul>
+          <li *ngFor="let link of section.links">
+            <a
+              [href]="link.isEmail ? 'mailto:' + link.url : link.url"
+              [target]="link.isEmail ? '_self' : '_blank'"
+              [rel]="link.isEmail ? '' : 'noopener noreferrer'"
+            >
+              {{ link.text }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

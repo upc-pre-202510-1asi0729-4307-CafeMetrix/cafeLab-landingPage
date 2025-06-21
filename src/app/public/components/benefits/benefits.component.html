@@ -1,0 +1,21 @@
+<section id="beneficios" class="beneficios">
+  <div class="container">
+    <h2 class="beneficios__title" [innerHTML]="'BENEFITS.TITLE' | translate">
+    </h2>
+    <div class="beneficios__grid">
+      <div class="beneficio-card" *ngFor="let benefit of benefits">
+        <h3 class="beneficio-card__heading">{{ benefit.title }}</h3>
+        <p class="beneficio-card__text">
+          {{ benefit.description }}
+        </p>
+        <p class="beneficio-card__cta">
+          <span class="highlight">{{ benefit.cta.highlight }}</span>
+          <span class="cta-rest">{{ benefit.cta.rest }}</span>
+        </p>
+        <a [href]="benefit.link" class="btn-beneficios">
+          {{ benefit.buttonText }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

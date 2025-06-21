@@ -1,0 +1,29 @@
+<section id="videos" class="videos-section">
+  <div class="videos-container">
+      <h2 class="videos-title">{{ 'VIDEOS.TITLE' | translate }}</h2>
+    <div class="videos-grid">
+      <div class="video-item">
+        <h3>{{ 'VIDEOS.ABOUT_TEAM' | translate }}</h3>
+        <div class="video-wrapper">
+          <iframe
+            [src]="videoUrl1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <div class="video-item">
+        <h3>{{ 'VIDEOS.ABOUT_PRODUCT' | translate }}</h3>
+        <div class="video-wrapper">
+          <iframe
+            [src]="videoUrl2"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

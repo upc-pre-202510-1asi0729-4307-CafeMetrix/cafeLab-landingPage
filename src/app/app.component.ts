@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import {HeaderComponent} from './public/components/header/header.component';
+import {HeroComponent} from './public/components/hero/hero.component';
+import {BenefitsComponent} from './public/components/benefits/benefits.component';
+import {DataSectionComponent} from './public/components/data-section/data-section.component';
+import {PlansComponent} from './public/components/plans/plans.component';
+import {TestimonialsComponent} from './public/components/testimonials/testimonials.component';
+import {FaqContactComponent} from './public/components/faq-contact/faq-contact.component';
+import {FooterComponent} from './public/components/footer/footer.component';
+import { LanguageService } from './core/services/language.service';
+import {VideosComponent} from './public/components/videos/videos';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  imports: [
+    HeaderComponent,
+    HeroComponent,
+    BenefitsComponent,
+    DataSectionComponent,
+    PlansComponent,
+    TestimonialsComponent,
+    FaqContactComponent,
+    FooterComponent,
+    VideosComponent
+  ],
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  title = 'cafelab';
+  constructor(private languageService: LanguageService) {}
+  ngOnInit() {
+    this.languageService.setLanguage('es');
+  }
+}
