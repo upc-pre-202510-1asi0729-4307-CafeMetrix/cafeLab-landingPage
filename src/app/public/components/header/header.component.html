@@ -8,13 +8,13 @@
         <a href="#beneficios" class="nav-link primary">{{ 'HEADER.BENEFITS' | translate }}</a>
         <a href="#planes" class="nav-link primary">{{ 'HEADER.PLANS' | translate }}</a>
         <a href="#faq-contacto" class="nav-link primary">{{ 'HEADER.CONTACT' | translate }}</a>
-        <a href="#iniciar-sesion" class="nav-link primary login">
+        <button class="nav-link primary login" (click)="goToLogin()">
           <svg class="login-icon icon-person" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
           </svg>
           {{ 'HEADER.LOGIN' | translate }}
-        </a>
+        </button>
       </nav>
       <button class="language-button primary" (click)="toggleLanguage()">
         {{ currentLanguage }}
@@ -30,18 +30,18 @@
       </div>
     </div>
   </div>
-  
+
   <nav class="nav-mobile" [class.active]="isMobileMenuOpen">
     <a href="#beneficios" class="nav-link primary" (click)="closeMobileMenu()">{{ 'HEADER.BENEFITS' | translate }}</a>
     <a href="#planes" class="nav-link primary" (click)="closeMobileMenu()">{{ 'HEADER.PLANS' | translate }}</a>
     <a href="#faq-contacto" class="nav-link primary" (click)="closeMobileMenu()">{{ 'HEADER.CONTACT' | translate }}</a>
-    <a href="#iniciar-sesion" class="nav-link primary login" (click)="closeMobileMenu()">
+    <button class="nav-link primary login" (click)="goToLogin(); closeMobileMenu()">
       <svg class="login-icon icon-person" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
         <circle cx="12" cy="7" r="4"/>
       </svg>
       {{ 'HEADER.LOGIN' | translate }}
-    </a>
+    </button>
     <button class="language-button primary" (click)="toggleLanguage()">
       {{ currentLanguage }}
       <svg class="language-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

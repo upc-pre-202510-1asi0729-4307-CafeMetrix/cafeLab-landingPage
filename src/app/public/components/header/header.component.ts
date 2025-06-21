@@ -45,4 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
   }
+  goToLogin() {
+    window.open('https://coffee-lab-10031.web.app/login', '_blank');
+  }
 }

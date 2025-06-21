@@ -60,5 +60,6 @@ export class PlansComponent implements OnInit, OnDestroy {
 
   onPlanSelect(plan: Plan) {
     console.log('Plan selected:', plan.title);
+    window.open('https://coffee-lab-10031.web.app/login', '_blank');
   }
 }

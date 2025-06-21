@@ -47,7 +47,7 @@ export class BenefitsComponent implements OnInit {
           rest: this.translate.instant('BENEFITS.BARISTA.CTA_REST')
         },
         buttonText: this.translate.instant('BENEFITS.BARISTA.BUTTON'),
-        link: '#herramientas'
+        link: 'https://coffee-lab-10031.web.app/login'
       },
       {
         title: this.translate.instant('BENEFITS.COFFEE_SHOP.TITLE'),
@@ -57,7 +57,7 @@ export class BenefitsComponent implements OnInit {
           rest: this.translate.instant('BENEFITS.COFFEE_SHOP.CTA_REST')
         },
         buttonText: this.translate.instant('BENEFITS.COFFEE_SHOP.BUTTON'),
-        link: '#soluciones'
+        link: 'https://coffee-lab-10031.web.app/login'
       }
     ];
   }

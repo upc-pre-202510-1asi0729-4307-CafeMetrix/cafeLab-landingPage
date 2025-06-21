@@ -9,6 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class HeroComponent {
   onRegister() {
-    console.log('Registration clicked');
+    window.open('https://coffee-lab-10031.web.app/login', '_blank');
   }
 }
